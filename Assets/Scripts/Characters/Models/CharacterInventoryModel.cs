@@ -21,11 +21,11 @@ public class CharacterInventoryModel : MonoBehaviour
         if (quantity > 0)
         {
             var itemData = Database.Items.FindItem(type);
-            if (itemData.Animation != ItemData.PickUpAnimation.None)
+            if (itemData.Animation != PickUpAnimation.None)
             {
                 _movementModel.ShowItemPickup(itemData.Type);
             }
-            if (itemData != null && itemData.EquipmentSlot != ItemData.EquipSlot.None)
+            if (itemData != null && itemData.EquipmentSlot != EquipSlot.None)
             {
                 _movementModel.EquipItem(type);
             }
@@ -38,5 +38,15 @@ public class CharacterInventoryModel : MonoBehaviour
             _items[type] -= quantity;
         else
             _items.Remove(type);
+    }
+
+    public int GetItemCount(ItemType itemType)
+    {
+        if (_items.ContainsKey(itemType))
+        {
+            return _items[itemType];
+        }
+        return 0;
+
     }
 }

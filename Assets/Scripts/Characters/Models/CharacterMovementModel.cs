@@ -128,9 +128,8 @@ public class CharacterMovementModel : MonoBehaviour {
 
     public bool CanAttack()
     {
-        Debug.Log("canAttack? - " + _isAttacking);
-        if (_equippedWeapon == ItemType.None)
-        return false;
+        if (_equippedWeapon == ItemType.None || IsPushed())
+            return false;
         return !_isAttacking;
     }
 
@@ -141,28 +140,26 @@ public class CharacterMovementModel : MonoBehaviour {
     public void OnAttackStarted()
     {
         _isAttacking = true;
-        Debug.Log("attack start");
     }
 
     public void OnAttackEnded()
     {
         _isAttacking = false;
-        Debug.Log("attack end");
     }
 
     public void EquipItem(ItemType weapon)
     {
         if (WeaponParent == null) return;
         var item = Database.Items.FindItem(weapon);
-        if (item != null && item.EquipmentSlot != ItemData.EquipSlot.None)
+        if (item != null && item.EquipmentSlot != EquipSlot.None)
         {
             GameObject sword = Instantiate(item.Prefab);
-            if (item.EquipmentSlot == ItemData.EquipSlot.MainHand)
+            if (item.EquipmentSlot == EquipSlot.MainHand)
             {
                 _equippedWeapon = weapon;
                 sword.transform.parent = WeaponParent;
             }
-            if (item.EquipmentSlot == ItemData.EquipSlot.OffHand)
+            if (item.EquipmentSlot == EquipSlot.OffHand)
                 sword.transform.parent = ShieldParent;
             sword.transform.localPosition = Vector2.zero;
             sword.transform.localRotation = Quaternion.identity;

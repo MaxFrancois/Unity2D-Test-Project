@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4066215506711532}
   - component: {fileID: 61730188515014438}
   - component: {fileID: 114105339764213604}
+  - component: {fileID: 114506598241068780}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -110,6 +111,24 @@ MonoBehaviour:
   DestroyedSprite: {fileID: 21300000, guid: 0f53979a4d6f5e442a89577ebafce9bd, type: 3}
   DestroyEffect: {fileID: 1791615543733532, guid: 53c8a29b1f2ce0a4aa68d23f3de944e8,
     type: 2}
+--- !u!114 &114506598241068780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1348194625615270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5415b70b633b8d84c8fcbfbc61a15542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LootTable:
+  - ItemType: 0
+    Amount: 0
+    Percentage: 70
+  - ItemType: 201
+    Amount: 1
+    Percentage: 30
 --- !u!212 &212465279403311742
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -82,9 +82,9 @@ public class CharacterMovementView : MonoBehaviour
             if (pickedUpItemType != ItemType.None)
             {
                 var pickedUpItemData = Database.Items.FindItem(pickedUpItemType);
-                if (pickedUpItemData.Animation == ItemData.PickUpAnimation.OneHand)
+                if (pickedUpItemData.Animation == PickUpAnimation.OneHand)
                     isPickingUpOneHand = true;
-                if (pickedUpItemData.Animation == ItemData.PickUpAnimation.TwoHand)
+                if (pickedUpItemData.Animation == PickUpAnimation.TwoHand)
                     isPickingUpTwoHand = true;
             }
 

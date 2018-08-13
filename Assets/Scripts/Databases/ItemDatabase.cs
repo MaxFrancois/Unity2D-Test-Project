@@ -12,22 +12,24 @@ public class ItemDatabase : ScriptableObject {
     }
 }
 
+public enum PickUpAnimation
+{
+    None,
+    OneHand,
+    TwoHand
+}
+
+public enum EquipSlot
+{
+    None,
+    MainHand,
+    OffHand
+}
+
 [Serializable]
 public class ItemData
 {
-    public enum PickUpAnimation
-    {
-        None,
-        OneHand,
-        TwoHand
-    }
-
-    public enum EquipSlot
-    {
-        None,
-        MainHand,
-        OffHand
-    }
+    
     public ItemType Type;
     public GameObject Prefab;
     public PickUpAnimation Animation;
